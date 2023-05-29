@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:38:38 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/05/29 17:38:37 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/05/29 19:38:29 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ char	*map_to_line(int fd)
 	while (size == 1024)
 	{
 		size = read(fd, buf, 1024);
+		if (!size && !total)
+		{
+			write(2, "error : Invalid map file\n", 25);
+			exit(EXIT_FAILURE);
+		}
 		if (size < 0)
 			_err_(str);
 		str = _join_(str, buf, total, size);
