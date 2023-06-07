@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_image.c                                        :+:      :+:    :+:   */
+/*   fdf_mlx.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:52:42 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/05/29 15:09:58 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:56:19 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include "fdf_hook.h"
 
 void	draw_pixel(t_img *img, int x, int y, int color)
 {
@@ -49,5 +50,6 @@ void	get_mlx(t_map *map)
 	draw_image(map, &img);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, img.img, 0, 0);
 	mlx_key_hook(mlx.win, key_hook, &mlx);
+	mlx_hook(mlx.win, BUTTON_RED, 0, button_hook, &mlx);
 	mlx_loop(mlx.mlx);
 }

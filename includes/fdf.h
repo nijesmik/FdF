@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 20:09:28 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/05/29 18:12:00 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:55:48 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,5 @@ void	get_pixel(t_map *map);
 void	get_mlx(t_map *map);
 void	draw_pixel(t_img *img, int x, int y, int color);
 void	draw_line(t_img *img, t_pos start, t_pos end);
-int		key_hook(int keycode, t_mlx *mlx);
 
 #endif

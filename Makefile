@@ -6,7 +6,7 @@
 #    By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 11:07:07 by sejinkim          #+#    #+#              #
-#    Updated: 2023/05/29 17:33:36 by sejinkim         ###   ########.fr        #
+#    Updated: 2023/06/07 22:00:02 by sejinkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 NAME = fdf
 HDR_DIR = ./includes/
-HDR = $(HDR_DIR)fdf.h
+HDR = $(HDR_DIR)fdf.h $(HDR_DIR)fdf_hook.h
 SRCS_MANDATORY = \
 	./srcs/fdf_main.c \
 	./srcs/map/fdf_map_line.c ./srcs/map/fdf_map_info.c \
@@ -22,7 +22,7 @@ SRCS_MANDATORY = \
 	./srcs/map/fdf_pos.c \
 	./srcs/pixel/fdf_rotation.c ./srcs/pixel/fdf_pixel.c \
 	./srcs/mlx/fdf_mlx.c ./srcs/mlx/fdf_line.c \
-	./srcs/mlx/fdf_key.c
+	./srcs/mlx/fdf_hook.c
 
 OBJS_MANDATORY = $(SRCS_MANDATORY:.c=.o)
 MLX_DIR = ./minilibx/
