@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:38:38 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/05/29 19:38:29 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:19:02 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	_err_(char *str)
 {
 	if (str)
 		free(str);
-	perror("malloc error");
+	perror("error");
 	exit(EXIT_FAILURE);
 }
 
@@ -63,7 +63,7 @@ char	*map_to_line(int fd)
 		size = read(fd, buf, 1024);
 		if (!size && !total)
 		{
-			write(2, "error : Invalid map file\n", 25);
+			write(2, "error : invalid map file\n", 25);
 			exit(EXIT_FAILURE);
 		}
 		if (size < 0)

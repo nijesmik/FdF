@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:24:33 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/05/29 19:38:29 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:18:59 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static void	_err_(char **ptr, int err_code)
 {
 	if (ptr)
 		free_ptr(ptr);
-	if (err_code)
-		perror("malloc error");
+	if (!err_code)
+		write(2, "error: invalid map file\n", 24);
 	else
-		write(2, "error : Invalid map file\n", 25);
+		perror("error");
 	exit(EXIT_FAILURE);
 }
 

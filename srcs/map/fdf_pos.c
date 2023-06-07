@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:16:00 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/05/29 19:38:29 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:19:07 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static double	_pos_z_(char *str)
 		num = num * 10 + *str++ - '0';
 	if (!*str || *str == ',')
 		return (num * sign);
-	write(2, "error : Invalid map file\n", 25);
+	write(2, "error : invalid map file\n", 25);
 	exit(EXIT_FAILURE);
 }
 

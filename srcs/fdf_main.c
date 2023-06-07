@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 20:08:57 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/05/29 19:40:58 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:19:30 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		write(2, "error : Input only one argument with map file!\n", 47);
+		write(2, "error: invalid arguments\n", 25);
 		return (EXIT_FAILURE);
 	}
 	get_map_info(av[1], &map);
