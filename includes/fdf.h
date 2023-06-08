@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 20:09:28 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/06/07 21:55:48 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/09 10:13:25 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,6 @@
 # define WIDTH 1920
 # define HEIGHT 1080
 # define PI 3.14159265
-
-typedef struct s_mlx_image
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_size;
-	int		endian;
-}	t_img;
 
 typedef struct s_coordinate
 {
@@ -56,22 +47,16 @@ typedef struct s_line
 	int	idx;
 }	t_line;
 
-typedef struct s_mlx
-{
-	void	*mlx;
-	void	*win;
-}	t_mlx;
-
 typedef struct s_transform
 {
-	double	x_max;
-	double	x_min;
-	double	x_scale;
+	double	x_rotate;
+	double	y_rotate;
+	double	z_rotate;
+	double	scale;
+	double	scale_d;
 	double	x_shift;
-	double	y_max;
-	double	y_min;
-	double	y_scale;
 	double	y_shift;
+	size_t	mid_idx;
 }	t_trans;
 
 typedef struct s_map
@@ -81,6 +66,24 @@ typedef struct s_map
 	struct s_coordinate	*pos;
 }	t_map;
 
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_size;
+	int		endian;
+}	t_img;
+
+typedef struct s_variables
+{
+	t_map	map;
+	t_trans	tr;
+	void	*mlx;
+	void	*win;
+	t_img	img;
+}	t_vars;
+
 void	get_map_info(char *file, t_map *map);
 char	*map_to_line(int fd);
 int		get_color(char *str);
@@ -88,10 +91,15 @@ void	init_pos(t_map *map, size_t x, size_t y, char *str);
 size_t	get_split_size(char const *s, char c);
 char	**ft_split(char const *s, char c, size_t size);
 char	**free_ptr(char **ptr);
-void	rotation(t_map *map, double x_radian, double y_radian, double z_radian);
-void	get_pixel(t_map *map);
-void	get_mlx(t_map *map);
+void	rotation(t_vars *vars);
+void	transformation(t_vars *vars);
+void	projection(t_vars *vars, double x_rad, double y_rad, double z_rad);
 void	draw_pixel(t_img *img, int x, int y, int color);
 void	draw_line(t_img *img, t_pos start, t_pos end);
+void	draw_image(t_vars *vars);
+void	mlx_hooks(t_vars *vars);
+void	translate(int keycode, t_vars *vars);
+void	zoom(int keycode, t_vars *vars);
+void	rotate(int keycode, t_vars *vars);
 
 #endif

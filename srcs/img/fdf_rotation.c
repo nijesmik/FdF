@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:46:07 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/05/25 21:22:59 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/09 00:08:20 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ static void	z_rotation(t_map *map, double radian)
 	}
 }
 
-void	rotation(t_map *map, double x_radian, double y_radian, double z_radian)
+void	rotation(t_vars *vars)
 {
-	z_rotation(map, z_radian);
-	y_rotation(map, y_radian);
-	x_rotation(map, x_radian);
+	z_rotation(&vars->map, vars->tr.z_rotate);
+	y_rotation(&vars->map, vars->tr.y_rotate);
+	x_rotation(&vars->map, vars->tr.x_rotate);
 }

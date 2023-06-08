@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_key.c                                          :+:      :+:    :+:   */
+/*   fdf_transformation.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 14:50:11 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/06/07 21:55:24 by sejinkim         ###   ########.fr       */
+/*   Created: 2023/06/09 01:09:54 by sejinkim          #+#    #+#             */
+/*   Updated: 2023/06/09 01:10:30 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "fdf_hook.h"
 
-int	key_hook(int keycode, t_mlx *mlx)
+void	transformation(t_vars *vars)
 {
-	if (keycode == KEY_ESC)
+	size_t	i;
+	size_t	j;
+
+	j = 0;
+	while (j < vars->map.y_size)
 	{
-		mlx_destroy_window(mlx->mlx, mlx->win);
-		exit(0);
+		i = 0;
+		while (i < vars->map.x_size)
+		{
+			vars->map.pos[j * vars->map.x_size + i].x = vars->tr.scale \
+				* vars->map.pos[j * vars->map.x_size + i].x + vars->tr.x_shift;
+			vars->map.pos[j * vars->map.x_size + i].y = vars->tr.scale \
+				* vars->map.pos[j * vars->map.x_size + i].y + vars->tr.y_shift;
+			i++;
+		}
+		j++;
 	}
-	return (0);
-}
-
-int	button_hook(t_mlx *mlx)
-{
-	mlx_destroy_window(mlx->mlx, mlx->win);
-	exit(0);
 }
