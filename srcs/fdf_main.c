@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 20:08:57 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/06/07 21:19:30 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/08 20:27:47 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,3 @@ int	main(int ac, char **av)
 	free(map.pos);
 	return (0);
 }
-
-// export DYLD_LIBRARY_PATH=./minilibx

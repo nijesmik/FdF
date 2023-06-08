@@ -6,7 +6,7 @@
 #    By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 11:07:07 by sejinkim          #+#    #+#              #
-#    Updated: 2023/06/07 22:00:02 by sejinkim         ###   ########.fr        #
+#    Updated: 2023/06/08 20:26:08 by sejinkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS_MANDATORY = \
 
 OBJS_MANDATORY = $(SRCS_MANDATORY:.c=.o)
 MLX_DIR = ./minilibx/
-MLX = $(MLX_DIR)libmlx.dylib
+MLX = $(MLX_DIR)libmlx.a
 INCLUDE = -I$(MLX_DIR) -I$(HDR_DIR)
 LIB = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
