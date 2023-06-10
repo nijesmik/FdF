@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 20:09:28 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/06/09 10:13:25 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/10 10:41:56 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ typedef struct s_transform
 
 typedef struct s_map
 {
-	size_t				x_size;
-	size_t				y_size;
-	struct s_coordinate	*pos;
+	size_t	x_size;
+	size_t	y_size;
+	t_pos	*pos;
 }	t_map;
 
 typedef struct s_image

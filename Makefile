@@ -6,7 +6,7 @@
 #    By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 11:07:07 by sejinkim          #+#    #+#              #
-#    Updated: 2023/06/09 03:04:17 by sejinkim         ###   ########.fr        #
+#    Updated: 2023/06/10 10:52:23 by sejinkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ SRCS_MANDATORY = \
 	./srcs/map/fdf_map_line.c ./srcs/map/fdf_map_info.c \
 	./srcs/map/fdf_split.c ./srcs/map/fdf_color.c \
 	./srcs/map/fdf_pos.c \
-	./srcs/img/fdf_rotation.c ./srcs/img/fdf_projection.c \
-	./srcs/img/fdf_transformation.c \
-	./srcs/img/fdf_draw_img.c ./srcs/img/fdf_draw_line.c \
-	./srcs/img/fdf_hook.c ./srcs/img/fdf_hook2.c
+	./srcs/proj/fdf_rotation.c ./srcs/proj/fdf_projection.c \
+	./srcs/proj/fdf_transformation.c \
+	./srcs/proj/fdf_draw_img.c ./srcs/proj/fdf_draw_line.c \
+	./srcs/hook/fdf_hook.c ./srcs/hook/fdf_hook2.c
 
 OBJS_MANDATORY = $(SRCS_MANDATORY:.c=.o)
 MLX_DIR = ./minilibx/

@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:50:11 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/06/09 10:17:41 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/10 10:42:46 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,5 @@ int	key_event(int keycode, t_vars *vars)
 void	mlx_hooks(t_vars *vars)
 {
 	mlx_hook(vars->win, KEY_PRESS, 0, key_event, vars);
-	mlx_hook(vars->win, KEY_RELEASE, 0, key_event, vars);
 	mlx_hook(vars->win, DESTROY_NOTIFY, 0, destroy, vars);
 }

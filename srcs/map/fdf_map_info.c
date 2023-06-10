@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:24:33 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/06/07 21:18:59 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/10 10:43:53 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,7 @@ void	get_map_info(char *file, t_map *map)
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-	{
-		perror("fail to open file");
-		exit(EXIT_FAILURE);
-	}
+		_err_(NULL, 1);
 	line = map_to_line(fd);
 	map->y_size = get_split_size(line, '\n');
 	lines = ft_split(line, '\n', map->y_size);
