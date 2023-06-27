@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 01:16:18 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/06/09 10:23:21 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/27 11:56:34 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,28 @@ void	translate(int keycode, t_vars *v)
 		v->tr.y_shift += HEIGHT / 2 - v->map.pos[v->tr.mid_idx].y;
 	}
 	else if (keycode == KEY_LEFT)
-		v->tr.x_shift -= WIDTH / 500 + 1;
+		v->tr.x_shift -= WIDTH / 500 + 1 + v->tr.scale / 5;
 	else if (keycode == KEY_RIGHT)
-		v->tr.x_shift += WIDTH / 500 + 1;
+		v->tr.x_shift += WIDTH / 500 + 1 + v->tr.scale / 5;
 	else if (keycode == KEY_DOWN)
-		v->tr.y_shift += HEIGHT / 500 + 1;
+		v->tr.y_shift += HEIGHT / 500 + 1 + v->tr.scale / 5;
 	else if (keycode == KEY_UP)
-		v->tr.y_shift -= HEIGHT / 500 + 1;
+		v->tr.y_shift -= HEIGHT / 500 + 1 + v->tr.scale / 5;
 	_new_image_(v);
 }
 
 void	zoom(int keycode, t_vars *vars)
 {
+	double	d_scale;
+
+	d_scale = vars->tr.scale * 0.1;
+	if (d_scale < 0.1)
+		d_scale = 0.1;
 	if (keycode == KEY_PLUS)
-		vars->tr.scale += vars->tr.scale_d;
-	else if (vars->tr.scale < vars->tr.scale_d)
+		vars->tr.scale += d_scale;
+	else if (vars->tr.scale < d_scale)
 		return ;
 	else
-		vars->tr.scale -= vars->tr.scale_d;
+		vars->tr.scale -= d_scale;
 	_new_image_(vars);
 }

@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:58:22 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/06/09 10:15:01 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/27 11:56:49 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	projection(t_vars *v, double x_rad, double y_rad, double z_rad)
 	tmp_scale = _y_scale_(&v->map);
 	if (v->tr.scale > tmp_scale)
 		v->tr.scale = tmp_scale;
-	v->tr.scale_d = v->tr.scale / 50;
 	v->tr.mid_idx = v->map.x_size * (v->map.y_size / 2) + v->map.x_size / 2;
 	v->tr.x_shift = WIDTH / 2 - v->map.pos[v->tr.mid_idx].x * v->tr.scale;
 	v->tr.y_shift = HEIGHT / 2 - v->map.pos[v->tr.mid_idx].y * v->tr.scale;

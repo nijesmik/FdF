@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 20:09:28 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/06/10 10:41:56 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/27 11:56:59 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct s_transform
 	double	y_rotate;
 	double	z_rotate;
 	double	scale;
-	double	scale_d;
 	double	x_shift;
 	double	y_shift;
 	size_t	mid_idx;
