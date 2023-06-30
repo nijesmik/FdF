@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:50:11 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/06/10 10:42:46 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/06/30 20:53:30 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 int	destroy(t_vars *vars)
 {
+	mlx_destroy_image(vars->mlx, vars->img.img);
 	mlx_destroy_window(vars->mlx, vars->win);
+	free(vars->map.pos);
 	exit(0);
 }
 
