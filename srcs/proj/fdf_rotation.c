@@ -6,7 +6,7 @@
 /*   By: sejinkim <sejinkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:46:07 by sejinkim          #+#    #+#             */
-/*   Updated: 2023/06/21 16:43:43 by sejinkim         ###   ########.fr       */
+/*   Updated: 2023/10/02 21:16:25 by sejinkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 static void	x_rotation(t_map *map, size_t i, double radian)
 {
+	double tmp = map->pos[i].y;
 	map->pos[i].y = cos(radian) * map->pos[i].y \
 								- sin(radian) * map->pos[i].z;
-	map->pos[i].z = sin(radian) * map->pos[i].y \
+	map->pos[i].z = sin(radian) * tmp \
 								+ cos(radian) * map->pos[i].z;
 }
 
 static void	y_rotation(t_map *map, size_t i, double radian)
 {
+	double tmp = map->pos[i].z;
 	map->pos[i].z = cos(radian) * map->pos[i].z \
 								- sin(radian) * map->pos[i].x;
-	map->pos[i].x = sin(radian) * map->pos[i].z \
+	map->pos[i].x = sin(radian) * tmp \
 								+ cos(radian) * map->pos[i].x;
 }
 
